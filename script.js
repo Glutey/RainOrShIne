@@ -9,7 +9,8 @@ var geoCode = 'http:/ /api.openweathermap.org/geo/1.0/direct?q={city name},{stat
 
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
-    url: queryURL,
+    // url: queryURL,
+    url: geoCode,
     method: "GET"
   })
     // We store all of the retrieved data inside of an object called "response"
