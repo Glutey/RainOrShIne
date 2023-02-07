@@ -6,6 +6,9 @@ This code allows the user to search for any city by name and return a current an
 
 The user will be able to make use of this site and help them to plan their activities based on the inclimate weather conditions on that given day!
 
+GitPages URL:
+https://glutey.github.io/RainOrShine/
+
 Screen Shot:
 
 ![image](https://user-images.githubusercontent.com/115110026/217385899-deb7fb1e-b097-49ec-8c95-6445b93e5f66.png)
