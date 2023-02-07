@@ -4,7 +4,7 @@ $(document).ready(
     event.preventDefault();
   var cityName = $("#search-input").val();
   var weatherToday = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=d00e97b068c768695d109b4ec943d226';
-  var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=d00e97b068c768695d109b4ec943d226';
+  var queryUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=d00e97b068c768695d109b4ec943d226';
 
   console.log(cityName);
 
