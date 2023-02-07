@@ -8,8 +8,7 @@ The user will be able to make use of this site and help them to plan their activ
 
 Screen Shot:
 
-![image](https://user-images.githubusercontent.com/115110026/217385249-0cac36cd-d65f-47c2-8ee9-06b7f6f69852.png)
-
+![image](https://user-images.githubusercontent.com/115110026/217385899-deb7fb1e-b097-49ec-8c95-6445b93e5f66.png)
 
 
 
