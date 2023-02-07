@@ -17,6 +17,6 @@ button {
     border: 2px solid black;
     border-radius: 5px;
     background-color: aqua;
-    margin: auto;
-    justify-content: space-between;
+    margin: 10%;
+    
  }

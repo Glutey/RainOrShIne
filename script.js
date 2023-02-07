@@ -44,9 +44,6 @@ $(document).ready(
     url: queryUrl,
     method: "GET",
     statusCode: {
-      404 : function() {
-        alert ("City not found.");
-      },
       200 : function(response){
         console.log(queryUrl);
         console.log(response);
