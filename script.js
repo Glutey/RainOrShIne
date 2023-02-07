@@ -1,5 +1,3 @@
-var apiKey = 'd00e97b068c768695d109b4ec943d226';
-//api key for use on the OpenWeather site
 
 $(document).ready(
   $("#search-button").click(function(event){
@@ -7,12 +5,12 @@ $(document).ready(
   var cityName = $("#search-input").val();
   var weatherToday = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=d00e97b068c768695d109b4ec943d226';
   var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=d00e97b068c768695d109b4ec943d226';
-//   var currentForecast = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&appid=d00e97b068c768695d109b4ec943d226';
+
   console.log(cityName);
 
 
   $.ajax({
-    url: weatherToday, // changed the api call as the original was wrong.
+    url: weatherToday, 
     method: "GET",
     statusCode: {
       404 : function() {
@@ -22,7 +20,6 @@ $(document).ready(
         var currentDate = moment().format("MMM Do YY");
         console.log(weatherToday);
         console.log(response);
-        //removed the .list from this line as it isnt applicable to the object being called
         console.log(response.length);
         var jsonString = JSON.stringify(response);
         localStorage.setItem("weatherData", jsonString);
@@ -30,8 +27,7 @@ $(document).ready(
           
           // Transfer content to HTML
         $("#city").text('City: ' + response.name);
-        $("#date").html('Date: ' + moment().format("MMM Do YY")); // get moment and date
-        // $("#description_weather").html('Description ' + response.weather[0].description);
+        $("#date").html('Date: ' + moment().format("MMM Do YY")); 
         $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
         $("#temperature").html('Temperature ' + response.main.temp);
         $("#pressure").html('Pressure ' + response.main.pressure);
@@ -51,8 +47,9 @@ $(document).ready(
         var card_count = 0
         for (var i = 0; i < response.list.length; i += 8){
           console.log(response.list[i]);
+
           // Transfer content to HTML
-           $("#dates-" + card_count).html('Date: ' + moment().add(card_count, "days").format("MMM Do YY")); // get moment and date
+           $("#dates-" + card_count).html('Date: ' + moment().add(card_count, "days").format("MMM Do YY")); 
            $("#weather_image-" + card_count).attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
            $("#temp-" + card_count).html('Temperature ' + response.list[i].main.temp);
            $("#humid-" + card_count).html('Humidity ' + response.list[i].main.humidity);
