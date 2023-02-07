@@ -20,37 +20,36 @@ $(document).ready(
       200 : function(response){
         console.log(currentForecast);
         console.log(response);
-        for (var i = 0; i < response.list.length; i += 4){
-          console.log(response.list[i]);
-          function currentSave(){
-            var dayOne = document.getElementById
-
-          }
+        for (var i = 0; i < response.length; i += 4){ //removed the .list from this line as it isnt applicable to the object being called
+          console.log(response.length[i]);
+          var jsonString = JSON.stringify(response);
+          localStorage.setItem("weatherData", jsonString);
+  
           // store into local storeage here
         }
       }
     }
   })
 // Here we run our AJAX call to the OpenWeatherMap API
-$.ajax({
-    url: queryUrl,
-    method: "GET",
-    statusCode: {
-      404 : function() {
-        alert ("Re-show input. City not found.");
-      },
-      200 : function(response){
-        console.log(queryUrl);
-        console.log(response);
+// $.ajax({
+//     url: queryUrl,
+//     method: "GET",
+//     statusCode: {
+//       404 : function() {
+//         alert ("Re-show input. City not found.");
+//       },
+//       200 : function(response){
+//         console.log(queryUrl);
+//         console.log(response);
         
-        for (var i = 0; i < response.list.length; i += 8){
-          // jquery newcard for each day containing all in info such as 
-          console.log(response.list[i]);
-          // store into local storage here
-        }
-      }
-    }
-  })
+//         for (var i = 0; i < response.list.length; i += 8){
+//           // jquery newcard for each day containing all in info such as 
+//           console.log(response.list[i]);
+//           // store into local storage here
+//         }
+//       }
+//     }
+//   })
   
       // Transfer content to HTML
       // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
