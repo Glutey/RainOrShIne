@@ -19,7 +19,7 @@ $(document).ready(
         alert ("City not found.");
       },
       200 : function(response){
-        var currentDate = moment().now;
+        var currentDate = moment().format("MMM Do YY");
         console.log(weatherToday);
         console.log(response);
         //removed the .list from this line as it isnt applicable to the object being called
