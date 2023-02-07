@@ -39,9 +39,7 @@ $(document).ready(
       }
     }
   })
-// wrap this in an event listener that actions when the user clicks the button for the current days weather, it will then populate that 
-// location with the forecast for the next 5 days
-// including: date, temperature, humidity and weather icon
+
     $.ajax({
     url: queryUrl,
     method: "GET",
@@ -53,9 +51,19 @@ $(document).ready(
         console.log(queryUrl);
         console.log(response);
         
+        var card_count = 0
         for (var i = 0; i < response.list.length; i += 8){
           console.log(response.list[i]);
+          // Transfer content to HTML
+           $("#dates-" + card_count).html('Date: ' + moment().add(card_count, "days").format("MMM Do YY")); // get moment and date
+           $("#weather_image-" + card_count).attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
+           $("#temp-" + card_count).html('Temperature ' + response.list[i].main.temp);
+           $("#humid-" + card_count).html('Humidity ' + response.list[i].main.humidity);
+           card_count++;
         }
+        var jString = JSON.stringify(response);
+        localStorage.setItem("moreData", jString);
+           
       }
     }
   })
