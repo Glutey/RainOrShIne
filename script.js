@@ -16,12 +16,12 @@ $(document).ready(
     method: "GET",
     statusCode: {
       404 : function() {
-        alert ("Re-show input. City not found.");
+        alert ("City not found.");
       },
       200 : function(response){
         console.log(weatherToday);
         console.log(response);
-        for (var i = 0; i < response.length; i += 4){ //removed the .list from this line as it isnt applicable to the object being called
+        for (var i = 0; i < response.length; i++){ //removed the .list from this line as it isnt applicable to the object being called
           console.log(response.length[i]);
           var jsonString = JSON.stringify(response);
           localStorage.setItem("weatherData", jsonString);
