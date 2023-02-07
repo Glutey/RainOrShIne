@@ -19,43 +19,50 @@ $(document).ready(
         alert ("City not found.");
       },
       200 : function(response){
+        var currentDate = moment().now;
         console.log(weatherToday);
         console.log(response);
         for (var i = 0; i < response.length; i++){ //removed the .list from this line as it isnt applicable to the object being called
           console.log(response.length[i]);
           var jsonString = JSON.stringify(response);
           localStorage.setItem("weatherData", jsonString);
-  
-          // store into local storeage here
+          console.log(currentDate);
         }
       }
     }
   })
 // Here we run our AJAX call to the OpenWeatherMap API
-// $.ajax({
-//     url: queryUrl,
-//     method: "GET",
-//     statusCode: {
-//       404 : function() {
-//         alert ("Re-show input. City not found.");
-//       },
-//       200 : function(response){
-//         console.log(queryUrl);
-//         console.log(response);
+$.ajax({
+    url: queryUrl,
+    method: "GET",
+    statusCode: {
+      404 : function() {
+        alert ("Re-show input. City not found.");
+      },
+      200 : function(response){
+        console.log(queryUrl);
+        console.log(response);
         
-//         for (var i = 0; i < response.list.length; i += 8){
-//           // jquery newcard for each day containing all in info such as 
-//           console.log(response.list[i]);
-//           // store into local storage here
-//         }
-//       }
-//     }
-//   })
+        for (var i = 0; i < response.list.length; i += 8){
+          // jquery newcard for each day containing all in info such as 
+          console.log(response.list[i]);
+          // store into local storage here
+        }
+      }
+    }
+  })
   
       // Transfer content to HTML
-      // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-      // $(".wind").text("Wind Speed: " + response.wind.speed);
-      // $(".humidity").text("Humidity: " + response.main.humidity);
+      $("#today").html("<h1>" + response.name + " Weather Details</h1>");
+      The city name
+      * The date
+      * An icon representation of weather conditions
+      * The temperature
+      * The humidity
+      * The wind speed
+      $("#today").text("Wind Speed: " + response.wind.speed);
+      $('#today').add('<ul>Date:' + )
+      $(".humidity").text("Humidity: " + response.main.humidity);
       
       // // Convert the temp to Celsius
       // var tempC = response.main.temp - 273.15;
